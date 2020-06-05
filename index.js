@@ -28,7 +28,7 @@ for (let i = 0; i < nodeUrls.length; i++) {
 }
 
 
-
+let switchFinish = false;
 
 const getFastWeb3 = async () => {
     let timeout = 500;
@@ -64,10 +64,15 @@ const getFastWeb3 = async () => {
     console.log(ret);
     web3select = ret[0].index;
     console.log('web3select', web3select, nodeUrls[web3select]);
+    switchFinish = true;
 }
 
 const getWeb3 = () => {
     return web3s[web3select];
+}
+
+const isSwitchFinish = () => {
+    return switchFinish;
 }
 
 getFastWeb3();
